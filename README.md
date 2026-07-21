@@ -1,3 +1,8 @@
+![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?logo=php)
+![ESP32](https://img.shields.io/badge/ESP32-IoT-red)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 # SIDRY
 Smart Intelligent Drying System
 
