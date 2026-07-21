@@ -1,0 +1,370 @@
+* { box-sizing: border-box; }
+ 
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+  min-height: 100vh;
+  padding: 0 15px 30px 15px;
+  margin: 0;
+}
+ 
+h2 { color: #2c3e50; margin-bottom: 5px; padding-top: 20px; }
+ 
+.subtitle {
+  color: #34495e;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+ 
+/* === NAVBAR === */
+.navbar-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 20px 15px 0 15px;
+}
+ 
+.navbar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: rgba(44, 62, 80, 0.92);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+ 
+.navbar a {
+  color: rgba(236, 240, 241, 0.75);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+ 
+.navbar a:hover { background: rgba(255,255,255,0.1); color: #ecf0f1; }
+ 
+.navbar a.active {
+  background: #f39c12;
+  color: white;
+}
+ 
+/* === SENSOR CARDS === */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 950px;
+  margin: 0 auto;
+}
+ 
+.card {
+  width: 200px;
+  padding: 25px;
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+ 
+.card:hover { transform: translateY(-6px); }
+ 
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+ 
+.temp   { background: linear-gradient(135deg, #ff6b6b, #e74c3c); }
+.hum    { background: linear-gradient(135deg, #4facfe, #3498db); }
+.rain   { background: linear-gradient(135deg, #1dd1a1, #16a085); }
+.status { background: linear-gradient(135deg, #a55eea, #8e44ad); }
+ 
+.value { font-size: 38px; font-weight: bold; margin-top: 5px; }
+.unit  { font-size: 18px; }
+ 
+/* === SECTION TITLE === */
+.section-title {
+  margin: 40px 0 15px 0;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: bold;
+}
+ 
+/* === KONTROL PANEL === */
+.panel {
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+ 
+.jemuran-btn {
+  width: 160px;
+  height: 55px;
+  font-size: 15px;
+  margin: 8px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+ 
+.jemuran-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+ 
+.masuk  { background: #16a085; }
+.keluar { background: #2980b9; }
+.auto   { background: #f39c12; }
+ 
+.esp-status {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #555;
+}
+ 
+/* === STATISTIK === */
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  max-width: 950px;
+  margin: 0 auto;
+}
+ 
+.stat-card {
+  background: rgba(255,255,255,0.85);
+  border-radius: 15px;
+  padding: 18px 22px;
+  min-width: 150px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+ 
+.stat-card .stat-label {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 6px;
+}
+ 
+.stat-card .stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+ 
+.stat-card .stat-unit {
+  font-size: 14px;
+  color: #555;
+}
+ 
+/* === RIWAYAT TABLE === */
+.table-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  overflow-x: auto;
+}
+ 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+ 
+th {
+  background: #2c3e50;
+  color: white;
+  padding: 10px 12px;
+  text-align: center;
+}
+ 
+td {
+  padding: 9px 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+ 
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #f0f8ff; }
+ 
+.badge-hujan {
+  background: #3498db;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+ 
+.badge-cerah {
+  background: #f39c12;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+ 
+/* === TOMBOL CSV === */
+.btn-csv {
+  display: inline-block;
+  margin-top: 20px;
+  background: #27ae60;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.15s ease;
+}
+ 
+.btn-csv:hover { transform: translateY(-3px); }
+ 
+/* === AI / ML SECTION === */
+.ai-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 950px;
+  margin: 0 auto;
+}
+ 
+.ai-card {
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  padding: 22px;
+  flex: 1;
+  min-width: 260px;
+  max-width: 420px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  text-align: left;
+}
+ 
+.ai-card h4 {
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+  font-size: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+ 
+.skor-bar-wrap {
+  background: #eee;
+  border-radius: 20px;
+  height: 14px;
+  margin: 8px 0 12px 0;
+  overflow: hidden;
+}
+ 
+.skor-bar {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+ 
+.level-excellent { background: #27ae60; }
+.level-good      { background: #2ecc71; }
+.level-warning   { background: #f39c12; }
+.level-danger    { background: #e74c3c; }
+ 
+.rekomen-text {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+ 
+.warning-list {
+  font-size: 12px;
+  color: #e74c3c;
+  margin: 6px 0 0 0;
+  padding-left: 16px;
+}
+ 
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #555;
+}
+ 
+.nb-result {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 8px 0 4px 0;
+}
+ 
+.nb-conf {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+ 
+.trend-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 4px 0;
+  color: #555;
+}
+ 
+.arrow-up    { color: #e74c3c; }
+.arrow-down  { color: #3498db; }
+.arrow-same  { color: #27ae60; }
+ 
+/* Tabel prediksi besok */
+.pred-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 10px;
+}
+ 
+.pred-table th {
+  background: #2c3e50;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+}
+ 
+.pred-table td {
+  padding: 7px 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+ 
+.pred-table tr:last-child td { border-bottom: none; }
+ 
+.badge-cerah2 { background: #f39c12; color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
+.badge-hujan2 { background: #3498db; color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
+.badge-pasti  { background: #95a5a6; color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
+ 
+.note-data {
+  font-size: 11px;
+  color: #999;
+  margin-top: 10px;
+  font-style: italic;
+}
+ 
